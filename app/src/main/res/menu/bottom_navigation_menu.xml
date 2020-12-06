@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomNavHomeId"
+        android:icon="@drawable/home"
+        android:title="@string/homeIconText" />
+    <item
+        android:id="@+id/bottomNavCameraId"
+        android:icon="@drawable/ic_baseline_photo_camera_24"
+        android:title="@string/cameraIconText" />
+    <item
+        android:id="@+id/bottomNavHelpId"
+        android:icon="@drawable/search"
+        android:title="@string/searchIconText" />
+    <item
+        android:id="@+id/bottomNavSettingsId"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settingsIconText"/>
+
+</menu>

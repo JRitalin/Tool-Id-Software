@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cocktail Genie</string>
+
+    <!--Splash and login screen strings-->
+    <string name="home_title">Cocktail Genie</string>
+    <string name="splash_title">Welcome to Cocktail Genie!</string>
+    <string name="server_client_id">1081699142298-sbmu96kn9kk16fbbfcjbmkm8a323o0br.apps.googleusercontent.com</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+
+    <string name="homeBottomBar">Home</string>
+    <string name="favoritesBottomBar">Favorites</string>
+    <string name="homeIconText">Home</string>
+    <string name="favoritesIconText">Favorites</string>
+    <string name="searchIconText">Search</string>
+    <string name="search_by_prompt">Search by:</string>
+
+
+</resources>

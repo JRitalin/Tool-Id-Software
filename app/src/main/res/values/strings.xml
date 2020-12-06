@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tool ID</string>
+
+    <!--Splash and login screen strings-->
+    <string name="home_title">Welcome to Tool ID</string>
+    <string name="splash_title">Tool ID</string>
+    <string name="start_app">Go</string>
+    <string name="help">Help</string>
+
+    <string name="homeBottomBar">Home</string>
+    <string name="favoritesBottomBar">Favorites</string>
+    <string name="homeIconText">Home</string>
+    <string name="cameraIconText">Favorites</string>
+    <string name="searchIconText">Search</string>
+    <string name="search_by_prompt">Search by:</string>
+    <string name="tool_ID_StartText">This is currently to test this box. Please change text when done</string>
+    <string name="settingsIconText">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
