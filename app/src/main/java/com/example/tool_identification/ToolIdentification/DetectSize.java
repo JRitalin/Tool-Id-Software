@@ -97,8 +97,8 @@ public class DetectSize {
 
 
 //        change distance in millimeters for correct calculations
-//      distance = 304.8  // 1 foot
-        double distance = 488.95;
+        double distance = 304.8; // 1 foot
+//        double distance = 488.95;
         final_size= (distance/focalLength[0])* R_WidthMm;
         Log.d("Test","Final Size: "+ Math.round(final_size));
 

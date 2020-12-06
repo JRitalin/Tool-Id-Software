@@ -3,11 +3,17 @@
     package="com.example.tool_identification">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera.any"/>
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-feature android:name="android.hardware.camera2"
-        android:required="true"/>
-    <uses-feature android:name="android.hardware.camera2.params"/>
+
+
+<!--    <uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
+
+
+<!--    <uses-feature android:name="android.hardware.camera2"-->
+<!--        android:required="true"/>-->
+<!--    <uses-feature android:name="android.hardware.camera2.params"/>-->
 
     <application
         android:allowBackup="true"
@@ -18,7 +24,8 @@
         android:theme="@style/AppTheme"
         >
         <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Startup.WelcomeSplash"
             android:theme="@style/ThemeOverlay.MyHideTitle">
 
@@ -27,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
        </application>
 
 </manifest>
