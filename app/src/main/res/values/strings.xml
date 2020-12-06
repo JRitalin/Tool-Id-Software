@@ -15,8 +15,13 @@
     <string name="search_by_prompt">Search by:</string>
     <string name="tool_ID_StartText">This is currently to test this box. Please change text when done</string>
     <string name="settingsIconText">Settings</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="logo">Logo</string>
+    <string name="homeTitle">Welcome to Tool ID</string>
+    <string name="welcomeText">This app is designed to allow a user to identify hand
+        tools and, with certain items, measure their size.
+        Click the camera icon on the bottom to get started</string>
+    <string name="disclaimer"><b>Disclaimer:</b>
+        \n\t\t\t\tThis is a prototype and as such, some features are not fully implemented.
+        Use at your own risk.</string>
 
 </resources>

@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.example.tool_identification.R;
 
 
-public class SettingsFrag1 extends Fragment {
+public class SettingsFrag extends Fragment {
     //Variables
     TextView textView;
 
-    public SettingsFrag1(){
+    public SettingsFrag() {
         // Required Empty Constructor
     }
 

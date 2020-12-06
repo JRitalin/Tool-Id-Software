@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.tool_identification.UIFragments.HomeFrag;
 import com.example.tool_identification.UIFragments.CamFrag;
-import com.example.tool_identification.UIFragments.HelpFrag1;
-import com.example.tool_identification.UIFragments.SettingsFrag1;
+import com.example.tool_identification.UIFragments.HomeFrag;
+import com.example.tool_identification.UIFragments.SettingsFrag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,14 +44,9 @@ public class MainActivity extends AppCompatActivity {
             frag = new CamFrag();
             loadFrag(frag);
             return true;
-        }else if (item.getItemId()==R.id.bottomNavHelpId){
-            navBar.setTitle("Help");
-            frag = new HelpFrag1();
-            loadFrag(frag);
-            return true;
         }else if(item.getItemId()==R.id.bottomNavSettingsId){
             navBar.setTitle("Settings");
-            frag = new SettingsFrag1();
+            frag = new SettingsFrag();
             loadFrag(frag);
             return true;
         }

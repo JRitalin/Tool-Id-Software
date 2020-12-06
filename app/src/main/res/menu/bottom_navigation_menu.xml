@@ -10,10 +10,6 @@
         android:icon="@drawable/ic_baseline_photo_camera_24"
         android:title="@string/cameraIconText" />
     <item
-        android:id="@+id/bottomNavHelpId"
-        android:icon="@drawable/search"
-        android:title="@string/searchIconText" />
-    <item
         android:id="@+id/bottomNavSettingsId"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settingsIconText"/>

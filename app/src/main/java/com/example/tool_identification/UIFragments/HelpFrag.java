@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.example.tool_identification.R;
 
 
-public class HelpFrag1 extends Fragment {
+public class HelpFrag extends Fragment {
 
     TextView textView;
 
-    public HelpFrag1() {
+    public HelpFrag() {
         // Required Empty Constructor
     }
 
