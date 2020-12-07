@@ -59,7 +59,7 @@ public class DrawBoundingBox{
     public void drawBBoxforPic(){
         try {
             Canvas canvas = surfaceHolder.lockCanvas();
-//            canvas.drawColor(0,PorterDuff.Mode.CLEAR);
+            canvas.drawColor(0,PorterDuff.Mode.CLEAR);
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
