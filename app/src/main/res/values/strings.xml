@@ -23,5 +23,8 @@
     <string name="disclaimer"><b>Disclaimer:</b>
         \n\t\t\t\tThis is a prototype and as such, some features are not fully implemented.
         Use at your own risk.</string>
+    <string name="aboutText">The team:\nJon Northrup\nDaniel Leach
+        \nDaniel Bennett\nRiddhi Parsana\nAndrei Pielea</string>
+    <string name="about">About us</string>
 
 </resources>
