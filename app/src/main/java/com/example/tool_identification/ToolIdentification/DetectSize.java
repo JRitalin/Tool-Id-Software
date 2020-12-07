@@ -102,6 +102,30 @@ public class DetectSize {
 //        double distance = 488.95;
         final_size= (distance/focalLength[0])* R_WidthMm;
         Log.d("Test","Final Size: "+ Math.round(final_size));
+        // target width = 88.9
+        // target height = 50.8
+        //8mm = 23
+        //10 = 24
+        //12mm = 27 or 28
+        //14mm = 29 or 32
+        //17mm = 38 or 40
+        //19mm = 42 45
+
+        if(final_size <=23){
+            final_size = 8.0;
+        }else if(final_size>=24 && final_size <=26){
+            final_size = 10.0;
+        }else if(final_size >=27 && final_size <= 28){
+            final_size = 12.0;
+        }else if(final_size >=29 && final_size <=34){
+            final_size = 14.0;
+        }else if(final_size >= 35 && final_size <= 40){
+            final_size = 17.0;
+        }else if(final_size >=41){
+            final_size = 19.0;
+        }
+
+
 
 
 
@@ -119,7 +143,7 @@ public class DetectSize {
             final_size = 19.0;
         }
 
-        
+
 
 //        float sizeW = preview.getSize().getWidth();
 ////        double focal_length_px = (size.width * 0.5) / Math.tan(horizontalViewAngle * 0.5 * PI/180);
