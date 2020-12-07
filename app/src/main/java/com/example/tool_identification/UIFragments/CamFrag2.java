@@ -7,8 +7,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.YuvImage;
 import android.media.Image;
 import android.os.Bundle;
@@ -28,6 +30,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
+import androidx.camera.core.CameraX;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageInfo;
@@ -43,6 +46,7 @@ import androidx.lifecycle.LifecycleOwner;
 import com.example.tool_identification.MainActivity;
 import com.example.tool_identification.R;
 import com.example.tool_identification.ToolIdentification.DetectObject;
+import com.example.tool_identification.ToolIdentification.DrawBoundingBox;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraView;
@@ -75,11 +79,16 @@ public class CamFrag2 extends Fragment {
     SurfaceHolder surfaceHolder;
     DetectObject detectObject;
     Context context;
+    ProcessCameraProvider cameraProvider;
+
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private Executor executor = Executors.newSingleThreadExecutor();
     PreviewView previewView;
     Bitmap bitmap;
+    Camera camera;
+    DrawBoundingBox drawBoundingBox;
+    RectF Rbounds;
 
     public CamFrag2(){
         // Required Empty Constructor
@@ -111,10 +120,6 @@ public class CamFrag2 extends Fragment {
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.setFormat(PixelFormat.TRANSPARENT);
 
-//        cameraView = view.findViewById(R.id.camera);
-//        cameraView.setMode(Mode.PICTURE);
-//        cameraView.setLifecycleOwner(this);
-
         previewView = view.findViewById(R.id.previewView);
 
         Log.d("Test","Ask for permission");
@@ -125,41 +130,18 @@ public class CamFrag2 extends Fragment {
         }
 
 
+
         btnCapture.setOnClickListener(this::onClick);
         btnBack.setOnClickListener(this::onClick);
 
         return view;
     }
 
-//    // take picture and listen for results
-//    public void takePicture(){
-//        cameraView.addCameraListener(new CameraListener() {
-//
-//            @Override
-//
-//            public void onPictureTaken(@NotNull PictureResult result) {
-//                result.toBitmap(320, 320, bitmap -> {
-//                    imageView.setImageBitmap(bitmap);
-//                    detectObject = new DetectObject(bitmap,surfaceHolder);
-//                    detectObject.setStream(false);
-//                    detectObject.setContext(context);
-//                    detectObject.Detect();
-//                    feature.setText(detectObject.getFeature());
-//                    probability.setText(detectObject.getFinalSize());
-//                    cameraView.close();
-//                });
-//            }
-//        });
-//        cameraView.takePicture();
-//    }
-
-
 
     private void onClick(View v) {
 
         TensorImage tensorImage = new TensorImage(DataType.UINT8);
         tensorImage.load(bitmap);
-        imageView.setImageBitmap(bitmap);
         detectObject = new DetectObject(bitmap,surfaceHolder);
         detectObject.setStream(false);
         detectObject.setContext(context);
@@ -174,10 +156,11 @@ public class CamFrag2 extends Fragment {
 
 
     private void StartCamera(){
+
         cameraProviderFuture = ProcessCameraProvider.getInstance(context);
         cameraProviderFuture.addListener(() -> {
             try {
-                ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+                cameraProvider = cameraProviderFuture.get();
                 bindPreview(cameraProvider);
             } catch (ExecutionException | InterruptedException e) {
                 // No errors need to be handled for this Future.
@@ -198,9 +181,9 @@ public class CamFrag2 extends Fragment {
 
         ImageAnalysis imageAnalysis =
                 new ImageAnalysis.Builder()
-                        .setTargetResolution(new Size(1080,1440))
+//                        .setTargetResolution(new Size(1440,1080))
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                        .setTargetRotation(Surface.ROTATION_270)
+                        .setTargetRotation(Surface.ROTATION_90)
                         .build();
 
 
@@ -213,6 +196,11 @@ public class CamFrag2 extends Fragment {
                 Log.d("Test","rotation Degrees: "+rotationDegrees);
                 bitmap = toBitmap(image.getImage());
                 Log.d("Test","Created bitmap");
+                bitmap = rotateImage(bitmap,90);
+
+                Rbounds = new RectF(481,10,100,241);
+                drawBoundingBox = new DrawBoundingBox(surfaceHolder,Rbounds);
+                drawBoundingBox.DrawPersistentBox();
 
             }
         });
@@ -220,7 +208,7 @@ public class CamFrag2 extends Fragment {
 
         preview.setSurfaceProvider(previewView.getSurfaceProvider());
 
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector,imageAnalysis,preview);
+        camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector,imageAnalysis,preview);
         Log.d("Test", "Bind successful");
     }
 
@@ -264,5 +252,13 @@ public class CamFrag2 extends Fragment {
         byte[] imageBytes = out.toByteArray();
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
+
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
+                matrix, true);
+    }
+
 
 }

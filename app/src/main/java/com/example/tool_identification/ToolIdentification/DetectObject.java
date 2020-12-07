@@ -51,7 +51,7 @@ public class DetectObject{
                         // Center crop the image to the largest square possible
                         // Rotation counter-clockwise in 90 degree increments
                         .add(new ResizeOp(1440,1080 , ResizeOp.ResizeMethod.BILINEAR))
-                        .add(new Rot90Op(180))
+//                        .add(new Rot90Op(180))
                         .build();
 
         TensorImage image = new TensorImage(DataType.UINT8);

@@ -93,7 +93,8 @@ public class DetectSize {
             e.printStackTrace();
         }
 
-        float R_WidthMm = (referenceBounds.width()/1440)*sensorSize.getWidth();
+        float R_WidthMm = (referenceBounds.height()/1080)*sensorSize.getWidth();
+
 
 
 //        change distance in millimeters for correct calculations
@@ -101,7 +102,8 @@ public class DetectSize {
 //        double distance = 488.95;
         final_size= (distance/focalLength[0])* R_WidthMm;
         Log.d("Test","Final Size: "+ Math.round(final_size));
-
+        // target width = 88.9
+        // target height = 50.8
 
         
 
