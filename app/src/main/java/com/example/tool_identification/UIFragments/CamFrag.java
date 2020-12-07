@@ -2,7 +2,9 @@ package com.example.tool_identification.UIFragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.graphics.PixelFormat;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,16 +16,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tool_identification.R;
 import com.example.tool_identification.ToolIdentification.DetectObject;
+import com.example.tool_identification.ToolIdentification.DrawBoundingBox;
 import com.otaliastudios.cameraview.BitmapCallback;
 import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.PictureResult;
 import com.otaliastudios.cameraview.controls.Mode;
+import com.otaliastudios.cameraview.frame.Frame;
+import com.otaliastudios.cameraview.frame.FrameProcessor;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -41,6 +47,8 @@ public class CamFrag extends Fragment {
     private DetectObject detectObject;
     private Context context;
     private Bitmap bitmap;
+    private RectF Rbounds;
+    private DrawBoundingBox drawBoundingBox;
 
 
     public CamFrag() {
@@ -77,7 +85,14 @@ public class CamFrag extends Fragment {
         cameraView = view.findViewById(R.id.camera);
         cameraView.setMode(Mode.PICTURE);
         cameraView.setLifecycleOwner(this);
-
+        cameraView.addFrameProcessor(new FrameProcessor() {
+            @Override
+            public void process(@NonNull Frame frame) {
+                Rbounds = new RectF(827,10,100,422);
+                drawBoundingBox = new DrawBoundingBox(surfaceHolder,Rbounds);
+                drawBoundingBox.DrawPersistentBox();
+            }
+        });
         // Listeners for the buttons.  See the onClick for functionality
         btnCapture.setOnClickListener(this::onClick);
         btnBack.setOnClickListener(this::onClick);
@@ -91,9 +106,11 @@ public class CamFrag extends Fragment {
 
             @Override
             public void onPictureTaken(@NotNull PictureResult result) {
-                result.toBitmap(1440, 1080, new BitmapCallback() {
+                result.toBitmap(1080, 1440, new BitmapCallback() {
                     @Override
                     public void onBitmapReady(@Nullable Bitmap bitmap) {
+
+                        bitmap = rotateImage(bitmap,180);
                         imageView.setImageBitmap(bitmap);
                         detectObject = new DetectObject(bitmap, surfaceHolder);
                         detectObject.setStream(true);
@@ -146,6 +163,14 @@ public class CamFrag extends Fragment {
         cameraView.destroy();
     }
     // End of Override Camera methods
+
+
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
+                matrix, true);
+    }
 
 
 }

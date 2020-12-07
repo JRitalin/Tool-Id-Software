@@ -19,6 +19,21 @@ public class DrawBoundingBox{
 
     }
 
+    public void DrawPersistentBox(){
+        try{
+            Canvas canvas = surfaceHolder.lockCanvas();
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.RED);
+            paint.setStrokeWidth(5);
+            canvas.drawRect(bounds.left,bounds.top,bounds.right,bounds.bottom,paint);
+            surfaceHolder.unlockCanvasAndPost(canvas);
+        }catch (Throwable e){
+            Log.d("Test","error in drawing reference box");
+            e.printStackTrace();
+        }
+    }
+
     public void DrawBBoxforStream() {
         if(!bounds.isEmpty()){
             try {
@@ -44,7 +59,7 @@ public class DrawBoundingBox{
     public void drawBBoxforPic(){
         try {
             Canvas canvas = surfaceHolder.lockCanvas();
-            canvas.drawColor(0,PorterDuff.Mode.CLEAR);
+//            canvas.drawColor(0,PorterDuff.Mode.CLEAR);
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);

@@ -93,15 +93,31 @@ public class DetectSize {
             e.printStackTrace();
         }
 
-        float R_WidthMm = (referenceBounds.width()/1440)*sensorSize.getWidth();
+        float R_WidthMm = (referenceBounds.width()/1080)*sensorSize.getWidth();
 
 
 //        change distance in millimeters for correct calculations
 //      distance = 304.8  // 1 foot
-        double distance = 488.95;
+        double distance = 152.4; // 1/2 foot
+//        double distance = 488.95;
         final_size= (distance/focalLength[0])* R_WidthMm;
         Log.d("Test","Final Size: "+ Math.round(final_size));
 
+
+
+        if(final_size <=23){
+            final_size = 8.0;
+        }else if(final_size>=24 && final_size <=26){
+            final_size = 10.0;
+        }else if(final_size >=27 && final_size <= 28){
+            final_size = 12.0;
+        }else if(final_size >=29 && final_size <=34){
+            final_size = 14.0;
+        }else if(final_size >= 35 && final_size <= 40){
+            final_size = 17.0;
+        }else if(final_size >=41){
+            final_size = 19.0;
+        }
 
         
 
