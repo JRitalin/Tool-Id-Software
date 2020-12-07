@@ -51,18 +51,20 @@ public class DetectObject{
                         // Center crop the image to the largest square possible
                         // Rotation counter-clockwise in 90 degree increments
                         .add(new ResizeOp(1440,1080 , ResizeOp.ResizeMethod.BILINEAR))
-                        .add(new Rot90Op(90))
+//                        .add(new Rot90Op(180))
                         .build();
 
         TensorImage image = new TensorImage(DataType.UINT8);
         image.load(bitmap);
         image = imageProcessor.process(image);
+        Log.d("Test","processed height: "+image.getHeight());
+        Log.d("Test", "processed width: "+image.getWidth());
 
 //       add .setScoreThreshold((float) 0.5) to set threshold for detector
         ObjectDetector.ObjectDetectorOptions options = ObjectDetector.ObjectDetectorOptions.builder().setMaxResults(1).build();
         ObjectDetector objectDetector = null;
         try {
-            objectDetector = ObjectDetector.createFromFileAndOptions(context, "tool_object_detect_2_model.tflite", options);
+            objectDetector = ObjectDetector.createFromFileAndOptions(context, "tool_object_detect_1_model.tflite", options);
         } catch (IOException e) {
             e.printStackTrace();
         }

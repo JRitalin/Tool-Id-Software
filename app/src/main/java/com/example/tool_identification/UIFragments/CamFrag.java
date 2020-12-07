@@ -1,8 +1,12 @@
 package com.example.tool_identification.UIFragments;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
 import android.graphics.PixelFormat;
+import android.graphics.YuvImage;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +17,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -24,8 +31,13 @@ import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.PictureResult;
 import com.otaliastudios.cameraview.controls.Mode;
+import com.otaliastudios.cameraview.frame.Frame;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.io.ByteArrayOutputStream;
+
+import static android.content.ContentValues.TAG;
 
 public class CamFrag extends Fragment {
 
@@ -74,78 +86,72 @@ public class CamFrag extends Fragment {
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.setFormat(PixelFormat.TRANSPARENT);
 
-        cameraView = view.findViewById(R.id.camera);
-        cameraView.setMode(Mode.PICTURE);
-        cameraView.setLifecycleOwner(this);
+//        cameraView = view.findViewById(R.id.camera);
+//        cameraView.setMode(Mode.PICTURE);
+//        cameraView.setLifecycleOwner(this);
 
-        // Listeners for the buttons.  See the onClick for functionality
-        btnCapture.setOnClickListener(this::onClick);
-        btnBack.setOnClickListener(this::onClick);
+
+//        btnCapture.setOnClickListener(this::onClick);
+//        btnBack.setOnClickListener(this::onClick);
 
         return view;
     }// End of onCreateView
 
-    // Take picture and listen for results
-    public void takePicture() {
-        cameraView.addCameraListener(new CameraListener() {
+//    // take picture and listen for results
+//    public void takePicture(){
+//        cameraView.addCameraListener(new CameraListener() {
+//
+//            @Override
+//
+//            public void onPictureTaken(@NotNull PictureResult result) {
+//                result.toBitmap(320, 320, bitmap -> {
+//                    imageView.setImageBitmap(bitmap);
+//                    detectObject = new DetectObject(bitmap,surfaceHolder);
+//                    detectObject.setStream(false);
+//                    detectObject.setContext(context);
+//                    detectObject.Detect();
+//                    feature.setText(detectObject.getFeature());
+//                    probability.setText(detectObject.getFinalSize());
+//                    cameraView.close();
+//                });
+//            }
+//        });
+//        cameraView.takePicture();
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        cameraView.open();
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        cameraView.close();
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        cameraView.destroy();
+//    }
+//
+//
+//    private void onClick(View v) {
+//        if (cameraView.isOpened()) {
+//            CamFrag.this.takePicture();
+//            Log.d(TAG, "Picture Taken");
+//            btnCapture.setVisibility(View.GONE);
+//            btnBack.setVisibility(View.VISIBLE);
+//        } else {
+//            cameraView.open();
+//            btnBack.setVisibility(View.GONE);
+//            btnCapture.setVisibility(View.VISIBLE);
+//
+//        }
+//    }
 
-            @Override
-            public void onPictureTaken(@NotNull PictureResult result) {
-                result.toBitmap(1440, 1080, new BitmapCallback() {
-                    @Override
-                    public void onBitmapReady(@Nullable Bitmap bitmap) {
-                        imageView.setImageBitmap(bitmap);
-                        detectObject = new DetectObject(bitmap, surfaceHolder);
-                        detectObject.setStream(true);
-                        detectObject.setContext(context);
-                        detectObject.Detect();
-                        featureText.setText(detectObject.getFeature());
-                        confidenceText.setText(detectObject.getFinalSize());
-                        cameraView.close();
-                    }
-                });
-            }
-        });
-        cameraView.takePicture();
-    }// End of takePicture
-
-
-    // Method onClick:
-    private void onClick(View v) {
-        if (cameraView.isOpened()) {
-            CamFrag.this.takePicture();
-            Log.d(TAG, "Picture Taken");
-            // When photo is taken, sets btnCapture invisible and makes btnBack visible
-            btnCapture.setVisibility(View.GONE);
-            btnBack.setVisibility(View.VISIBLE);
-        } else {
-            cameraView.open();
-            // When back button is pressed, sets btnBack invisible and btnCapture visible
-            btnBack.setVisibility(View.GONE);
-            btnCapture.setVisibility(View.VISIBLE);
-
-        }
-    }// End of onClick
-
-    // Override Camera methods
-    @Override
-    public void onResume() {
-        super.onResume();
-        cameraView.open();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        cameraView.close();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        cameraView.destroy();
-    }
-    // End of Override Camera methods
 
 
 }

@@ -1,12 +1,18 @@
 package com.example.tool_identification;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.tool_identification.UIFragments.CamFrag2;
+import com.example.tool_identification.UIFragments.HomeFrag;
 import com.example.tool_identification.UIFragments.CamFrag;
 import com.example.tool_identification.UIFragments.HomeFrag;
 import com.example.tool_identification.UIFragments.SettingsFrag;
@@ -14,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private ActionBar navBar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frag_holder,
                     new HomeFrag()).commit();
         }
+
+
+
+
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
@@ -41,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }else if (item.getItemId()==R.id.bottomNavCameraId){
             navBar.setTitle("Camera");
+            frag = new CamFrag2();
+            loadFrag(frag);
+            return true;
+        }else if (item.getItemId()==R.id.bottomNavHelpId){
+            navBar.setTitle("Help");
+            frag = new HelpFrag1();
             frag = new CamFrag();
             loadFrag(frag);
             return true;
@@ -75,4 +93,6 @@ public class MainActivity extends AppCompatActivity {
         trans.addToBackStack(null);
         trans.commit();
     }
+
+
 }
