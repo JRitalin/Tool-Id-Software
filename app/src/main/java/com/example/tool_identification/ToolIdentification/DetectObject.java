@@ -71,26 +71,6 @@ public class DetectObject{
         List<Detection> results = objectDetector.detect(image);
         Log.d("Test",String.valueOf(results));
 
-
-
-//        if(results.size() == 2) {
-//            float first = results.get(0).getBoundingBox().left;
-//            float second = results.get(1).getBoundingBox().left;
-//
-//            // comparing left cordinates
-//            if (first < second) {
-//                referenceBox = results.get(0).getBoundingBox();
-//                unknownBox = results.get(1).getBoundingBox();
-//                Log.d("Test", "reference1 :" + results.get(0).getCategories().get(0).getLabel());
-//            } else{
-//                referenceBox = results.get(1).getBoundingBox();
-//                unknownBox = results.get(0).getBoundingBox();
-////                Log.d("Test", "reference2 :" + results.get(1).getCategories().get(1).getLabel());
-//            }
-//
-//
-//        }
-
         referenceBox = results.get(0).getBoundingBox();
         unknownBox = null;
         detectSize = new DetectSize(context,referenceBox,unknownBox);

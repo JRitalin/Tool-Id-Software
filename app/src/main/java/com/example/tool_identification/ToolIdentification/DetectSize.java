@@ -105,17 +105,17 @@ public class DetectSize {
 
 
 
-        if(final_size <=23){
+        if(final_size <=19){
             final_size = 8.0;
-        }else if(final_size>=24 && final_size <=26){
+        }else if(final_size ==20){
             final_size = 10.0;
-        }else if(final_size >=27 && final_size <= 28){
+        }else if(final_size >=21 && final_size <= 22){
             final_size = 12.0;
-        }else if(final_size >=29 && final_size <=34){
+        }else if(final_size >=23 && final_size <=29){
             final_size = 14.0;
-        }else if(final_size >= 35 && final_size <= 40){
+        }else if(final_size >= 30 && final_size <= 34){
             final_size = 17.0;
-        }else if(final_size >=41){
+        }else if(final_size >=35){
             final_size = 19.0;
         }
 
