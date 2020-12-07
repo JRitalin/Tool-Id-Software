@@ -11,7 +11,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="208dp"
         android:text="@string/welcomeText"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
@@ -26,16 +26,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="93dp"
         android:layout_marginEnd="177dp"
+        android:layout_marginBottom="192dp"
         android:text="@string/homeTitle"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/welcomeText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"

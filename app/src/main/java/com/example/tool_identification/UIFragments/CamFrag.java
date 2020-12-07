@@ -136,6 +136,8 @@ public class CamFrag extends Fragment {
             btnCapture.setVisibility(View.GONE);
             btnBack.setVisibility(View.VISIBLE);
         } else {
+            assert getFragmentManager() != null;
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
             cameraView.open();
             // When back button is pressed, sets btnBack invisible and btnCapture visible
             btnBack.setVisibility(View.GONE);

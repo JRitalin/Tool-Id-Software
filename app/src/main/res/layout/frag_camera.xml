@@ -20,38 +20,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <com.otaliastudios.cameraview.CameraView-->
-<!--        android:id="@+id/camera"-->
-<!--        android:layout_width="413dp"-->
-<!--        android:layout_height="430dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginLeft="16dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:layout_marginRight="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:cameraEngine="camera2"-->
-<!--        app:cameraPreview="glSurface"-->
-<!--        app:cameraPictureSizeMinWidth="320"-->
-<!--        app:cameraPictureSizeMinHeight="320"-->
-<!--        app:cameraPictureSizeMaxWidth="320"-->
-<!--        app:cameraPictureSizeMaxHeight="320"-->
-<!--        app:cameraPictureSizeAspectRatio="1:1"-->
-<!--        >-->
-
-<!--    </com.otaliastudios.cameraview.CameraView>-->
-
-
-
-    <androidx.camera.view.PreviewView
-        android:id="@+id/previewView"
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/camera"
         android:layout_width="413dp"
         android:layout_height="430dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:cameraEngine="camera2"
+        app:cameraPreview="glSurface"
+        app:cameraPictureSizeMinWidth="320"
+        app:cameraPictureSizeMinHeight="320"
+        app:cameraPictureSizeMaxWidth="320"
+        app:cameraPictureSizeMaxHeight="320"
+        app:cameraPictureSizeAspectRatio="1:1" />
 
 
     <SurfaceView

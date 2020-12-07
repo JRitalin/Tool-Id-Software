@@ -30,8 +30,6 @@ public class SettingsFrag extends Fragment {
                              Bundle savedInstanceState){
         //This inflates the layout
         View view = inflater.inflate(R.layout.frag_settings,container,false);
-        textView = view.findViewById(R.id.text);
-        textView.setText("Settings");
 
         return view;
     }

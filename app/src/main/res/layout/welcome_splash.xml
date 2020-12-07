@@ -46,8 +46,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.941"
-        app:layout_constraintStart_toStartOf="parent"/>
-<!--        app:srcCompat="@drawable/company_logo_test"-->
-<!--        android:contentDescription="TODO" />-->
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/company_logo_test" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
