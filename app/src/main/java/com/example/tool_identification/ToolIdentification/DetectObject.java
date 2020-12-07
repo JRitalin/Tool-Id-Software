@@ -64,7 +64,7 @@ public class DetectObject{
         ObjectDetector.ObjectDetectorOptions options = ObjectDetector.ObjectDetectorOptions.builder().setMaxResults(1).build();
         ObjectDetector objectDetector = null;
         try {
-            objectDetector = ObjectDetector.createFromFileAndOptions(context, "tool_object_detect_2_model.tflite", options);
+            objectDetector = ObjectDetector.createFromFileAndOptions(context, "tool_object_detect_1_model.tflite", options);
         } catch (IOException e) {
             e.printStackTrace();
         }

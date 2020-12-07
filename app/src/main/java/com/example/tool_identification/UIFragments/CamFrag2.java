@@ -89,6 +89,7 @@ public class CamFrag2 extends Fragment {
     Camera camera;
     DrawBoundingBox drawBoundingBox;
     RectF Rbounds;
+    ImageAnalysis imageAnalysis;
 
     public CamFrag2(){
         // Required Empty Constructor
@@ -140,6 +141,7 @@ public class CamFrag2 extends Fragment {
 
     private void onClick(View v) {
 
+        Log.d("Test","camera info: " + camera.getCameraInfo().getSensorRotationDegrees());
         TensorImage tensorImage = new TensorImage(DataType.UINT8);
         tensorImage.load(bitmap);
         detectObject = new DetectObject(bitmap,surfaceHolder);
@@ -198,7 +200,7 @@ public class CamFrag2 extends Fragment {
                 Log.d("Test","Created bitmap");
                 bitmap = rotateImage(bitmap,90);
 
-                Rbounds = new RectF(481,10,100,241);
+                Rbounds = new RectF(827,10,100,422);
                 drawBoundingBox = new DrawBoundingBox(surfaceHolder,Rbounds);
                 drawBoundingBox.DrawPersistentBox();
 
