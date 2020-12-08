@@ -20,38 +20,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <com.otaliastudios.cameraview.CameraView-->
-<!--        android:id="@+id/camera"-->
-<!--        android:layout_width="413dp"-->
-<!--        android:layout_height="430dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginLeft="16dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:layout_marginRight="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:cameraEngine="camera2"-->
-<!--        app:cameraPreview="glSurface"-->
-<!--        app:cameraPictureSizeMinWidth="320"-->
-<!--        app:cameraPictureSizeMinHeight="320"-->
-<!--        app:cameraPictureSizeMaxWidth="320"-->
-<!--        app:cameraPictureSizeMaxHeight="320"-->
-<!--        app:cameraPictureSizeAspectRatio="1:1"-->
-<!--        >-->
-
-<!--    </com.otaliastudios.cameraview.CameraView>-->
-
-
-
-    <androidx.camera.view.PreviewView
-        android:id="@+id/previewView"
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/camera"
         android:layout_width="413dp"
         android:layout_height="430dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:cameraEngine="camera2"
+        app:cameraPreview="glSurface"
+        app:cameraPictureSizeMinWidth="320"
+        app:cameraPictureSizeMinHeight="320"
+        app:cameraPictureSizeMaxWidth="320"
+        app:cameraPictureSizeMaxHeight="320"
+        app:cameraPictureSizeAspectRatio="1:1"
+        >
+    </com.otaliastudios.cameraview.CameraView>
+
+
+
+<!--    <androidx.camera.view.PreviewView-->
+<!--        android:id="@+id/previewView"-->
+<!--        android:layout_width="413dp"-->
+<!--        android:layout_height="430dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
 
     <SurfaceView
@@ -122,6 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="86dp"
             android:layout_marginBottom="116dp"
+            android:background="#090909"
+            android:textColor="#FDFBFB"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -131,6 +133,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginBottom="116dp"
+            android:background="#090909"
+            android:textColor="#FDFBFB"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -141,6 +146,9 @@
             android:layout_marginStart="206dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="207dp"
+            android:background="#090909"
+            android:textColor="#FDFBFB"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

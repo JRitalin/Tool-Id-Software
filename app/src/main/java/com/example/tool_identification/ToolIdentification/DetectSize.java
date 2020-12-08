@@ -62,7 +62,7 @@ import android.util.TypedValue;
 public class DetectSize {
 
     RectF detectedBounds, referenceBounds;
-    Double final_size;
+    Double final_size,fs1;
     CameraCharacteristics info;
     Context context;
     SizeF sensorSize;
@@ -111,36 +111,36 @@ public class DetectSize {
         //17mm = 38 or 40
         //19mm = 42 45
 
-        if(final_size <=23){
-            final_size = 8.0;
-        }else if(final_size>=24 && final_size <=26){
-            final_size = 10.0;
-        }else if(final_size >=27 && final_size <= 28){
-            final_size = 12.0;
-        }else if(final_size >=29 && final_size <=34){
-            final_size = 14.0;
-        }else if(final_size >= 35 && final_size <= 40){
-            final_size = 17.0;
-        }else if(final_size >=41){
-            final_size = 19.0;
-        }
+//        if(final_size <=23){
+//            final_size = 8.0;
+//        }else if(final_size>=24 && final_size <=26){
+//            final_size = 10.0;
+//        }else if(final_size >=27 && final_size <= 28){
+//            final_size = 12.0;
+//        }else if(final_size >=29 && final_size <=34){
+//            final_size = 14.0;
+//        }else if(final_size >= 35 && final_size <= 40){
+//            final_size = 17.0;
+//        }else if(final_size >=41){
+//            final_size = 19.0;
+//        }
 
+        fs1 = 0.0;
 
-
-
-
-        if(final_size <=19){
-            final_size = 8.0;
-        }else if(final_size ==20){
-            final_size = 10.0;
-        }else if(final_size >=21 && final_size <= 22){
-            final_size = 12.0;
-        }else if(final_size >=23 && final_size <=29){
-            final_size = 14.0;
-        }else if(final_size >= 30 && final_size <= 34){
-            final_size = 17.0;
-        }else if(final_size >=35){
-            final_size = 19.0;
+        if(final_size <=18){
+            fs1 = 8.0;
+        }else if(final_size >= 19 && final_size <=20){
+            fs1 = 8.0;
+        }else if(final_size >=21 && final_size <= 23){
+            fs1 = 12.0;
+        }else if(final_size >=24 && final_size <=29){
+            fs1 = 14.0;
+        }else if(final_size >= 30 && final_size <= 33){
+            fs1 = 17.0;
+        }else if(final_size >=34){
+            fs1 = 19.0;
+        }else{
+            fs1 = 0.0;
         }
 
 
@@ -186,7 +186,7 @@ public class DetectSize {
     }
 
     public Double getObjectSize(){
-        return final_size;
+        return fs1;
     }
 
     public void setContext(Context c){

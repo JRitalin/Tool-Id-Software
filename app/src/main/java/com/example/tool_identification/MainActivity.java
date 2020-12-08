@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.tool_identification.UIFragments.CamFrag2;
+//import com.example.tool_identification.UIFragments.CamFrag2;
 import com.example.tool_identification.UIFragments.HomeFrag;
 import com.example.tool_identification.UIFragments.CamFrag;
 import com.example.tool_identification.UIFragments.HomeFrag;
@@ -53,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }else if (item.getItemId()==R.id.bottomNavCameraId){
             navBar.setTitle("Camera");
-            frag = new CamFrag2();
-            loadFrag(frag);
-            return true;
-        }else if (item.getItemId()==R.id.bottomNavHelpId){
-            navBar.setTitle("Help");
-            frag = new HelpFrag1();
             frag = new CamFrag();
             loadFrag(frag);
             return true;

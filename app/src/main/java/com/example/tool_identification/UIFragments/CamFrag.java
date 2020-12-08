@@ -110,7 +110,7 @@ public class CamFrag extends Fragment {
                     @Override
                     public void onBitmapReady(@Nullable Bitmap bitmap) {
 
-                        bitmap = rotateImage(bitmap,180);
+                        bitmap = rotateImage(bitmap,0);
                         imageView.setImageBitmap(bitmap);
                         detectObject = new DetectObject(bitmap, surfaceHolder);
                         detectObject.setStream(true);
