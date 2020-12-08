@@ -8,9 +8,9 @@
     <string name="help">Help</string>
 
     <string name="homeBottomBar">Home</string>
-    <string name="favoritesBottomBar">Favorites</string>
+    <string name="cameraBottomBar">Camera</string>
     <string name="homeIconText">Home</string>
-    <string name="cameraIconText">Favorites</string>
+    <string name="cameraIconText">Camera</string>
     <string name="searchIconText">Search</string>
     <string name="search_by_prompt">Search by:</string>
     <string name="tool_ID_StartText">This is currently to test this box. Please change text when done</string>
